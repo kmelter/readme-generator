@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./src/markdown-template');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -59,7 +58,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contribution',
+        name: 'contributing',
         message: 'Enter contribution guidelines.',
         validate: contributionInput => {
             if (contributionInput) {
@@ -72,7 +71,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'instructions',
+        name: 'tests',
         message: 'Enter test instructions.',
         validate: instructionsInput => {
             if (instructionsInput) {
@@ -88,6 +87,32 @@ const questions = [
         name: 'license',
         message: 'Choose a license:',
         choices: []//TODO: figure out how to best manage license choices (api call? hard-coded list?)
+    },
+    {
+        type: 'input',
+        name: 'username',
+        message: 'Enter your GitHub username.',
+        validate: usernameInput => {
+            if (usernameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email.',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your email!');
+                return false;
+            }
+        }
     }
 ];
 
