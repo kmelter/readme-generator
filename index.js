@@ -3,7 +3,12 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+
+
+
+
+
+//TODO: Create an array of questions for user input
 inquirer
     .prompt([
         {
@@ -88,7 +93,7 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Choose a license:',
-            choices: ['test1', 'test2', 'test3']//TODO: figure out how to best manage license choices (api call? hard-coded list?)
+            choices: ['agpl-3.0', 'unlicense', 'mpl-2.0']//TODO: figure out how to best manage license choices (api call? hard-coded list?)
         },
         {
             type: 'input',

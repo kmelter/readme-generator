@@ -1,19 +1,41 @@
+const isomorphicFetch = require('isomorphic-fetch');
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  const badgeTest = 'test';
+  return badgeTest;
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  isomorphicFetch
+    const licenseLink = fetch(`https://api.github.com/licenses/${license}`)
+      .then(response => response.json())
+      .then(data => console.log(data.url));
+
+    return licenseLink;
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+
+function renderLicenseSection(license) {
+  isomorphicFetch
+    const licenseBody = fetch(`https://api.github.com/licenses/${license}`)
+      .then(response => response.json())
+      .then(data => console.log(data.body));
+    
+      return licenseBody;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
 # ${data.title}
+
+${renderLicenseBadge(data.license)}
 
 ## Description
 ${data.description}
@@ -36,7 +58,8 @@ ${data.tests}
 Email me with additional questions: ${data.email}
 
 ## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+${renderLicenseLink(data.license)}
+${renderLicenseSection(data.license)}
   `;
 }
 
