@@ -1,25 +1,20 @@
 const isomorphicFetch = require('isomorphic-fetch');
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
-  const badgeTest = 'test';
-  return badgeTest;
+  //With more time, I might attempt to use key-value pairs to link the user inputs with the actual code for the license badge
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+//I have been having difficulty getting the fetches to work and pass the information in the template literal.
+//I have console logged the data to demonstrate that the fetch request is completed.
 function renderLicenseLink(license) {
   isomorphicFetch
     const licenseLink = fetch(`https://api.github.com/licenses/${license}`)
       .then(response => response.json())
       .then(data => console.log(data.url));
 
-    return licenseLink;
+    //return licenseLink;
 }
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 
 function renderLicenseSection(license) {
   isomorphicFetch
@@ -27,10 +22,10 @@ function renderLicenseSection(license) {
       .then(response => response.json())
       .then(data => console.log(data.body));
     
-      return licenseBody;
+    //return licenseBody;
 }
 
-// TODO: Create a function to generate markdown for README
+//generateMarkdown by passing in user inputs
 function generateMarkdown(data) {
   return `
 # ${data.title}
